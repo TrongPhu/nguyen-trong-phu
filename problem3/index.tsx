@@ -83,3 +83,16 @@ const WalletPage: React.FC<Props> = (props: Props) => {
 }
 
 export default WalletPage;
+
+
+
+/**
+ To resolve this problem I will do steps:
+
+ 1. Write the hook to a new file for useWalletBalances(). In this file will call API to get data of Wallet Balances
+
+ 2. Write the hook to a new file for usePrices. In this file will call API to get data of Wallet Prices
+
+ 3. I will use Table component of Ant design to show the data of component in the rest of WalletPage component, it lay in return block
+
+ */
