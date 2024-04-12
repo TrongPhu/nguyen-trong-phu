@@ -47,8 +47,8 @@ function CurrencyConvertForm() {
         const roundedData = Math.floor(rs);
         setOutputCurrency(roundedData.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
       }
-    } catch (error) {
-      handleErrorMessage(null, 'Convert is failed');
+    } catch (error:any) {
+      handleErrorMessage(null, error?.response?.data?.error);
     } finally {
       setIsLoading(false);
     }
