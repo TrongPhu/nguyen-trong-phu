@@ -91,7 +91,7 @@ function CurrencyConvertForm() {
                 },
               ]}
             >
-              <Input placeholder='Enter character refer to currency that will convert from (like USD,...)' />
+              <Input placeholder='Enter character refer to currency that will convert from (like USD,..)' className='w-[500px]'/>
             </Form.Item>
             <Form.Item
             label="To"
@@ -103,7 +103,7 @@ function CurrencyConvertForm() {
                 },
               ]}
             >
-              <Input placeholder='Enter character refer to currency that will convert to (like VND,...)' onChange={(e:any)=> setOutputUnit(e.target.value)}/>
+              <Input placeholder='Enter character refer to currency that will convert to (like VND,...)' onChange={(e:any)=> setOutputUnit(e.target.value)} className='w-[500px]'/>
             </Form.Item>
             <Form.Item
             label="Amount"
@@ -119,7 +119,7 @@ function CurrencyConvertForm() {
                 },
               ]}
             >
-              <Input placeholder='Enter Amount that you want to convert'/>
+              <Input placeholder='Enter Amount that you want to convert' className='w-[500px]'/>
             </Form.Item>
             <Button loading={isLoading} htmlType='submit' type="primary">Convert</Button>
           </Form>
