@@ -3,13 +3,37 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { I18nextProvider } from 'react-i18next';
+import i18n from './i18n'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { BrowserRouter } from 'react-router-dom'
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      /*control refetch when focus on window*/
+      refetchOnWindowFocus: false,
+      /*Queries that fail are silently retried 3 times, with exponential backoff delay before capturing and displaying an error to the UI if retry = true*/
+      retry: false,
+      /*default staleTime means queries will not refetch their data as often*/
+      // staleTime: 5 * 60 * 1000,
+    },
+  },
+});
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <App />
+    <I18nextProvider i18n={i18n}>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </QueryClientProvider>
+    </I18nextProvider>
   </React.StrictMode>
 );
 
