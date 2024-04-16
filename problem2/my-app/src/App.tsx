@@ -2,7 +2,11 @@ import CurrencyConvertForm from "./components/CurrencyConvert";
 
 function App() {
   return (
-    <CurrencyConvertForm/>
+    <div className="flex flex-col items-center mt-5">
+      <div>
+        <CurrencyConvertForm/>
+      </div>
+    </div>
   );
 }
 
