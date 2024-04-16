@@ -147,15 +147,11 @@ function CurrencyConvertForm() {
               <Input placeholder={t('placeholder_amount')} className='w-[500px]'/>
             </Form.Item>
             <Button loading={isLoading} htmlType='submit' type="primary">{t('convert')}</Button>
-            
           </Form>
         </div>
         <div className='flex flex-row mt-5'>
           <div><Title>{t('result')}: </Title></div>
           <div className='pl-5'><Title>{outputCurrency}{` ${outputUnit.toUpperCase()}`}</Title></div>
-        </div>
-        <div>
-        
         </div>
     </div>
   )
