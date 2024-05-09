@@ -69,90 +69,109 @@ function CurrencyConvertForm() {
   };
 
   return (
-      <div className={`${styles.currencyForm}`}>
-        <div className='!rounded'>
-            <h1 className="my-10 text-3xl font-bold text-blue font-sans text-left">
-              {t('currency_form_title')}
-            </h1>
-        </div>
-        <div>
-          <Form
-            form={form}
-            labelCol={{ span: 6 }}
-            wrapperCol={{ span: 14 }}
-            layout="horizontal"
-            initialValues={{ size: componentSize }}
-            onValuesChange={onFormLayoutChange}
-            size={componentSize as SizeType}
-            style={{ maxWidth: 600 }}
-            onFinish={handleSubmitForm}
-            name="CurrencyConvertForm"
-          >
-            <Form.Item label={t('form_size')} name="size">
-              <Radio.Group>
-                <Radio.Button value="small">{t('small')}</Radio.Button>
-                <Radio.Button value="default">{t('default')}</Radio.Button>
-                <Radio.Button value="large">{t('large')}</Radio.Button>
-              </Radio.Group>
-            </Form.Item>
-            <Form.Item name="lang" label={t('language')} rules={[]}>
-                <Select
-                  placeholder="Select a option and change input text above"
-                  onChange={onLanguageChange}
-                  allowClear
-                  defaultValue={lang}
-                >
-                  <Option value="vi">{t('vietnam')}</Option>
-                  <Option value="en">{t('english')}</Option>
-                </Select>
-            </Form.Item>
-            <Form.Item
-            label={t('convert_from')}
-            name={`from`}
-              rules={[
-                {
-                  required: true,
-                  message: t('field_required'),
-                },
-              ]}
+    <div className="flex flex-col items-center mt-5">
+      <div>
+        <div className={`${styles.currencyForm}`}>
+          <div className='!rounded'>
+              <h1 className="my-10 text-3xl font-bold text-blue font-sans text-left">
+                {t('currency_form_title')}
+              </h1>
+          </div>
+          <div>
+            <Form
+              form={form}
+              labelCol={{ span: 6 }}
+              wrapperCol={{ span: 14 }}
+              layout="horizontal"
+              initialValues={{ size: componentSize }}
+              onValuesChange={onFormLayoutChange}
+              size={componentSize as SizeType}
+              style={{ maxWidth: 600 }}
+              onFinish={handleSubmitForm}
+              name="CurrencyConvertForm"
             >
-              <Input placeholder={t('placeholder_from')} className='w-[500px]'/>
-            </Form.Item>
-            <Form.Item
-            label={t('convert_to')}
-            name={`to`}
-              rules={[
-                {
-                  required: true,
-                  message: t('field_required'),
-                },
-              ]}
-            >
-              <Input placeholder={t('placeholder_from')} onChange={(e:any)=> setOutputUnit(e.target.value)} className='w-[500px]'/>
-            </Form.Item>
-            <Form.Item
-            label={t('amount')}
-            name={`amount`}
-              rules={[
-                {
-                  required: true,
-                  message: t('field_required'),
-                },
-                {
-                  pattern: regex.regexNumberInteger,
-                  message: t('field_number_required'),
-                },
-              ]}
-            >
-              <Input placeholder={t('placeholder_amount')} className='w-[500px]'/>
-            </Form.Item>
-            <Button loading={isLoading} htmlType='submit' type="primary">{t('convert')}</Button>
-          </Form>
+              <Form.Item label={t('form_size')} name="size">
+                <Radio.Group>
+                  <Radio.Button value="small">{t('small')}</Radio.Button>
+                  <Radio.Button value="default">{t('default')}</Radio.Button>
+                  <Radio.Button value="large">{t('large')}</Radio.Button>
+                </Radio.Group>
+              </Form.Item>
+              <Form.Item name="lang" label={t('language')} rules={[]}>
+                  <Select
+                    placeholder="Select a option and change input text above"
+                    onChange={onLanguageChange}
+                    allowClear
+                    defaultValue={lang}
+                  >
+                    <Option value="vi">{t('vietnam')}</Option>
+                    <Option value="en">{t('english')}</Option>
+                  </Select>
+              </Form.Item>
+              <Form.Item
+              label={t('convert_from')}
+              name={`from`}
+                rules={[
+                  {
+                    required: true,
+                    message: t('field_required'),
+                  },
+                ]}
+              >
+                <Input placeholder={t('placeholder_from')} className='w-[500px]'/>
+              </Form.Item>
+              <Form.Item
+              label={t('convert_to')}
+              name={`to`}
+                rules={[
+                  {
+                    required: true,
+                    message: t('field_required'),
+                  },
+                ]}
+              >
+                <Input placeholder={t('placeholder_from')} onChange={(e:any)=> setOutputUnit(e.target.value)} className='w-[500px]'/>
+              </Form.Item>
+              <Form.Item
+              label={t('amount')}
+              name={`amount`}
+                rules={[
+                  {
+                    required: true,
+                    message: t('field_required'),
+                  },
+                  {
+                    pattern: regex.regexNumberInteger,
+                    message: t('field_number_required'),
+                  },
+                ]}
+              >
+                <Input placeholder={t('placeholder_amount')} className='w-[500px]'/>
+              </Form.Item>
+              <Button loading={isLoading} htmlType='submit' type="primary">{t('convert')}</Button>
+            </Form>
+          </div>
+          <div className='flex flex-row mt-5'>
+            <div><Title>{t('result')}: </Title></div>
+            <div className='pl-5'><Title>{outputCurrency}{` ${outputUnit.toUpperCase()}`}</Title></div>
+          </div>
+          <div className='flex flex-row mt-5'>
+            <button className='myButton'>
+              Test custom button with taillwindcss
+            </button >
+          </div>
+          <div className='flex flex-row mt-5'>
+            <button className='my-button'>
+              Test custom button with taillwindcss
+            </button >
+          </div>
+          <div className='flex flex-row mt-5'>
+            <button className='bg-primaryBtn rounded h-10 px-5'>
+              Test custom button with taillwindcss
+            </button >
+          </div>
         </div>
-        <div className='flex flex-row mt-5'>
-          <div><Title>{t('result')}: </Title></div>
-          <div className='pl-5'><Title>{outputCurrency}{` ${outputUnit.toUpperCase()}`}</Title></div>
-        </div>
+      </div>
     </div>
   )
 }

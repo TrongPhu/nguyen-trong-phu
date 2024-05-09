@@ -9,7 +9,7 @@ const initialSidebarState: SidebarState = {
 }
 
 const sidebarSlice = createSlice({
-  name: 'auth',
+  name: 'sidebar',
   initialState: initialSidebarState,
   reducers: {
     open: state => {
