@@ -17,7 +17,7 @@ export interface AuthState {
    */
   authenticated: boolean
   authenticating: boolean
-  loginMethod: 'LOCAL_ACCOUNT'
+  loginMethod: string
   user?: {}
   permissions?: string[]
   role?: Role[]
@@ -32,7 +32,7 @@ const initialAuthState: AuthState = {
   activated: false,
   authenticated: false,
   authenticating: true,
-  loginMethod: 'LOCAL_ACCOUNT',
+  loginMethod: '',
   user: undefined,
   permissions: undefined,
   handleLogout: false,
