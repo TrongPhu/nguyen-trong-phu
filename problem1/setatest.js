@@ -265,6 +265,12 @@ function countCurrency(amount) {
       amount = amount - noteCounter[i] * notes[i];
     }
   }
+  
+  if(amount > 0){
+    console.log('Not a valid amount');
+    return;
+  }
+
   // Print notes denomination
   console.log("Denomination Count:");
   for (var j = 0; j < 4; j++) {
@@ -274,4 +280,4 @@ function countCurrency(amount) {
   }
 }
 
-countCurrency(1650);
+countCurrency(32000);
